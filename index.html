@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rajat Kuchara | Software Developer</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.emailjs.com/sdk/2.4.0/email.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
         tailwind.config = {
@@ -178,7 +177,7 @@
     <!-- Header with Profile Image -->
     <header class="relative overflow-hidden">
         <div class="absolute inset-0 bg-gradient-to-b from-dark to-transparent opacity-90 z-0"></div>
-        <div class="container mx-auto px-4 py-20 md:py-32 w-[88vh] flex flex-col md:flex-row items-center justify-between relative z-10">
+        <div class="container mx-auto px-4 py-20 md:py-32 w-88vh flex flex-col md:flex-row items-center justify-between relative z-10">
             <div class="w-full md:w-1/2 mb-10 md:mb-0 animate-fade-in">
                 <div class="w-48 h-48 md:w-64 md:h-64 mx-auto md:mx-0 rounded-full overflow-hidden border-4 border-primary glow">
                     <!-- Replace with your actual image -->
@@ -549,29 +548,29 @@
             <h2 class="text-3xl font-bold mb-8 text-center gradient-text">Get In Touch</h2>
             
             <div class="max-w-2xl mx-auto bg-dark/70 backdrop-blur-sm rounded-xl p-8 border border-gray-700 card-hover animate-fade-in">
-        <form id="contact-form">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-                <div>
-                    <label for="name" class="block text-gray-300 mb-2">Your Name</label>
-                    <input type="text" id="name" name="name" class="w-full px-4 py-2 bg-dark border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-                </div>
-                <div>
-                    <label for="email" class="block text-gray-300 mb-2">Your Email</label>
-                    <input type="email" id="email" name="email" class="w-full px-4 py-2 bg-dark border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-                </div>
-            </div>
-            <div class="mb-6">
-                <label for="subject" class="block text-gray-300 mb-2">Subject</label>
-                <input type="text" id="subject" name="subject" class="w-full px-4 py-2 bg-dark border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required>
-            </div>
-            <div class="mb-6">
-                <label for="message" class="block text-gray-300 mb-2">Message</label>
-                <textarea id="message" name="message" rows="5" class="w-full px-4 py-2 bg-dark border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" required></textarea>
-            </div>
-            <button type="submit" class="w-full md:w-auto px-6 py-3 bg-primary rounded-lg text-white hover:bg-blue-700 transition flex items-center justify-center gap-2">
-                <i class="fas fa-paper-plane"></i> Send Message
-            </button>
-        </form>
+                <form>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div>
+                            <label for="name" class="block text-gray-300 mb-2">Your Name</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 bg-dark border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-gray-300 mb-2">Your Email</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 bg-dark border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="subject" class="block text-gray-300 mb-2">Subject</label>
+                        <input type="text" id="subject" class="w-full px-4 py-2 bg-dark border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                    </div>
+                    <div class="mb-6">
+                        <label for="message" class="block text-gray-300 mb-2">Message</label>
+                        <textarea id="message" rows="5" class="w-full px-4 py-2 bg-dark border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                    </div>
+                    <button type="submit" class="w-full md:w-auto px-6 py-3 bg-primary rounded-lg text-white hover:bg-blue-700 transition flex items-center justify-center gap-2">
+                        <i class="fas fa-paper-plane"></i> Send Message
+                    </button>
+                </form>
             </div>
         </section>
     </main>
@@ -607,63 +606,7 @@
 
     <script>
        
-        document.addEventListener('DOMContentLoaded', function() {
-        // Initialize EmailJS with your User ID
-        emailjs.init('migB4d90CdhyP_mlI');
-
-        // Animation triggers on scroll
-        const animateOnScroll = function() {
-            const elements = document.querySelectorAll('.animate-fade-in, .animate-slide-in-left, .animate-slide-in-right, .animate-scale-up');
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                }
-            });
-        };
         
-        // Initial check
-        animateOnScroll();
-        
-        // Check on scroll
-        window.addEventListener('scroll', animateOnScroll);
-
-        // Smooth scroll for contact link
-        const contactLinks = document.querySelectorAll('a[href="#contact"]');
-        contactLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const contactSection = document.getElementById('contact');
-                const offset = 80;
-                const elementPosition = contactSection.getBoundingClientRect().top + window.pageYOffset;
-                window.scrollTo({
-                    top: elementPosition - offset,
-                    behavior: 'smooth'
-                });
-            });
-        });
-
-        // EmailJS form submission
-        document.getElementById('contact-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            emailjs.send('nam1503rata', 'template_xo4tgp4', {
-                name: this.name.value,
-                email: this.email.value,
-                subject: this.subject.value,
-                message: this.message.value
-            })
-            .then(function(response) {
-                alert('Message sent successfully!');
-                document.getElementById('contact-form').reset();
-            }, function(error) {
-                alert('Failed to send message. Please try again.');
-                console.error('EmailJS error:', error);
-            });
-        });
-    });
-    
-
         // Animation triggers on scroll
         document.addEventListener('DOMContentLoaded', function() {
             const animateOnScroll = function() {
